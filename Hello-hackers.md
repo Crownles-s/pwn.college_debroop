@@ -16,5 +16,16 @@ The challenge is to simply run a hello command in the terminal, and keep the low
 ```sh
 $ hello
 Success! Here is your flag:
-
+pwn.college{MF8NODijojPsDwj00GZywt8sF0k.QX3YjM1wCM2kjNzEzW}
 ```
+## Flag:
+pwn.college{MF8NODijojPsDwj00GZywt8sF0k.QX3YjM1wCM2kjNzEzW}
+
+### References:
+- None
+
+### Notes:
+- whoami command displays the role/name of the user.
+- commands are read and run linewise.
+- commands are fully case sensitive.
+
