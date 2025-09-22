@@ -26,8 +26,8 @@ pwn.college{MF8NODijojPsDwj00GZywt8sF0k.QX3YjM1wCM2kjNzEzW}
 
 ### Notes:
 - whoami command displays the role/name of the user.
-- commands are read and run linewise.
-- commands are fully case sensitive.
+- Commands are read and run linewise.
+- Commands are fully case sensitive.
 
 # Challenge 2: Intro to Arguments
 Let's try something more complicated: a command with arguments, which is what we call additional data passed to the command. When you type a line of text and hit enter, the shell actually parses your input into a command and its arguments. The first word is the command, and the subsequent words are arguments. Observe:
@@ -66,8 +66,30 @@ pwn.college{MtxeIUivyJruS7d407EqG3_MPmn.QX4YjM1wCM2kjNzEzW}
 - None
 
 ### Notes:
-- any command can have one or multiple arguments.
-- echo command works like a print and shows your arguments.
+- Any command can have one or multiple arguments.
+- Echo command works like a print and shows your arguments.
 
+# Challenge 3: Command History
+You're going to type a lot of commands, and typing everything from scratch can be annoying. Luckily, the shell saves a history of every command you invoke.
+
+You can scroll through those saved commands with the up/down arrow keys, and we'll practice that in this challenge. This challenge will inject the flag into your history. Bring up a terminal, hit the up arrow, and grab it! In other challenges, the history will contain the log of the commands you've run, so if you need to run a similar command again, you can use the arrow keys to scroll through and find it!
+
+## Solution:
+We simply need to enter the terminal and click "Up Arrow". Doing so immediately reveals the flag without any more code.
+
+```sh
+$ the flag is pwn.college{4pYqUT_bm_zhN-O-4l5FwcsQhh1.0lNzEzNxwCM2kjNzEzW}
+```
+
+## Flag:
+pwn.college{4pYqUT_bm_zhN-O-4l5FwcsQhh1.0lNzEzNxwCM2kjNzEzW}
+
+### References:
+- None
+
+### Notes:
+- Any command typed is saved into a command history within the terminal.
+- Previous commands can be navigated using arrow keys.
+  
 
 
