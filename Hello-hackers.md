@@ -19,7 +19,9 @@ Success! Here is your flag:
 pwn.college{MF8NODijojPsDwj00GZywt8sF0k.QX3YjM1wCM2kjNzEzW}
 ```
 ## Flag:
+```
 pwn.college{MF8NODijojPsDwj00GZywt8sF0k.QX3YjM1wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -60,7 +62,9 @@ pwn.college{MtxeIUivyJruS7d407EqG3_MPmn.QX4YjM1wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{MtxeIUivyJruS7d407EqG3_MPmn.QX4YjM1wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -82,7 +86,9 @@ hacker@hello~command-history:~$ the flag is pwn.college{4pYqUT_bm_zhN-O-4l5FwcsQ
 ```
 
 ## Flag:
+```
 pwn.college{4pYqUT_bm_zhN-O-4l5FwcsQhh1.0lNzEzNxwCM2kjNzEzW}
+```
 
 ### References:
 - None
