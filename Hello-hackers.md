@@ -14,7 +14,7 @@ In this level, invoke the hello command to get the flag! Keep in mind: commands 
 The challenge is to simply run a hello command in the terminal, and keep the lowercase in mind.
 
 ```sh
-$ hello
+hacker@hello~intro-to-commands:~$ hello
 Success! Here is your flag:
 pwn.college{MF8NODijojPsDwj00GZywt8sF0k.QX3YjM1wCM2kjNzEzW}
 ```
@@ -54,7 +54,7 @@ In this challenge, to get the flag, you must run the hello command (NOT the echo
 This challenge consists of running a hello command with one single argument called hackers.
 
 ```sh
-$ hello hackers
+hacker@hello~intro-to-arguments:~$ hello hackers
 Success! Here is your flag:
 pwn.college{MtxeIUivyJruS7d407EqG3_MPmn.QX4YjM1wCM2kjNzEzW}
 ```
@@ -78,7 +78,7 @@ You can scroll through those saved commands with the up/down arrow keys, and we'
 We simply need to enter the terminal and click "Up Arrow". Doing so immediately reveals the flag without any more code.
 
 ```sh
-$ the flag is pwn.college{4pYqUT_bm_zhN-O-4l5FwcsQhh1.0lNzEzNxwCM2kjNzEzW}
+hacker@hello~command-history:~$ the flag is pwn.college{4pYqUT_bm_zhN-O-4l5FwcsQhh1.0lNzEzNxwCM2kjNzEzW}
 ```
 
 ## Flag:
