@@ -95,3 +95,46 @@ pwn.college{YZjo7clhY3y8Aog9WFNyLoEqnuS.QX2QTN0wCM2kjNzEzW}
 ### Notes:
 - All commands must be run from the correct working directory.
 - Running commands in the wrong directory may throw an error.
+
+# Challenge 4: Position elsewhere
+The Linux filesystem has tons of directories with tons of files. You can navigate around directories by using the cd (change directory) command and passing a path to it as an argument, as so:
+
+```sh
+hacker@dojo:~$ cd /some/new/directory
+hacker@dojo:/some/new/directory$
+```
+
+This affects the "current working directory" of your process (in this case, the bash shell). Each process has a directory in which it's currently hanging out. The reasons for this will become clear later in the module.
+
+As an aside, now you can see what the ~ was in the prompt! It shows the current path that your shell is located at.
+
+This challenge will require you to execute the /challenge/run program from a specific path (which it will tell you). You'll need to cd to that directory before rerunning the challenge program. Good luck!
+
+## Solution:
+-This requires us to run a cd command to change the working directory. The cd command must have your destination directory as an argument. 
+- We must first get the working directory.
+- Tried to run /challenge/run to get the error, and get the terminal to reveal the working directory.
+
+```sh
+~$ /challenge/run
+Incorrect...
+You are not currently in the /sys/kernel directory.
+Please use the `cd` utility to change directory appropriately.
+hacker@paths~position-elsewhere:~$ cd /sys/kernel
+hacker@paths~position-elsewhere:/sys/kernel$ ^C
+hacker@paths~position-elsewhere:/sys/kernel$ /challenge/run
+Correct!!!
+/challenge/run is an absolute path, invoked from the right directory!
+Here is your flag:
+pwn.college{M3Ltq3q4GQHxMzrKqLIdtgBj5mh.QX3QTN0wCM2kjNzEzW}
+```
+- Terminal revealed the correct directory successfully.
+
+## Flag:
+pwn.college{M3Ltq3q4GQHxMzrKqLIdtgBj5mh.QX3QTN0wCM2kjNzEzW}
+
+### References:
+- None
+
+### Notes:
+- NO new notes.
