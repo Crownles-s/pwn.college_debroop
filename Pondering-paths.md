@@ -19,7 +19,9 @@ pwn.college{IG8cxFVsJuWj2HWLP6m3L31n9TU.QX4cTO0wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{IG8cxFVsJuWj2HWLP6m3L31n9TU.QX4cTO0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -44,7 +46,9 @@ pwn.college{UqAvSqBrha1zreqe4m6YaVlsPV4.QX1QTN0wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{UqAvSqBrha1zreqe4m6YaVlsPV4.QX1QTN0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -87,7 +91,9 @@ pwn.college{YZjo7clhY3y8Aog9WFNyLoEqnuS.QX2QTN0wCM2kjNzEzW}
 - Terminal revealed the correct directory successfully.
 
 ## Flag:
+```
 pwn.college{YZjo7clhY3y8Aog9WFNyLoEqnuS.QX2QTN0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -131,7 +137,9 @@ pwn.college{M3Ltq3q4GQHxMzrKqLIdtgBj5mh.QX3QTN0wCM2kjNzEzW}
 - Terminal revealed the correct directory successfully.
 
 ## Flag:
+```
 pwn.college{M3Ltq3q4GQHxMzrKqLIdtgBj5mh.QX3QTN0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -179,7 +187,9 @@ pwn.college{AnDuDSRWYsyJt-Bf4yRkTjVpH-G.QX4QTN0wCM2kjNzEzW}
 - Terminal revealed the correct directory successfully.
 
 ## Flag:
+```
 pwn.college{AnDuDSRWYsyJt-Bf4yRkTjVpH-G.QX4QTN0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -220,7 +230,9 @@ pwn.college{Yk3JQ5TvGB6xcR_4PTeaBo1_ktl.QX5QTN0wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{Yk3JQ5TvGB6xcR_4PTeaBo1_ktl.QX5QTN0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -265,7 +277,9 @@ pwn.college{QtUgDnaUNzyvOAb9OhORLQLUgTr.QXwUTN0wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{QtUgDnaUNzyvOAb9OhORLQLUgTr.QXwUTN0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -310,7 +324,9 @@ pwn.college{k0yshkngKk7IekMNtia7ekuQ0_4.QXxUTN0wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{k0yshkngKk7IekMNtia7ekuQ0_4.QXxUTN0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -376,7 +392,9 @@ pwn.college{Irf8pVJa1xKPMy2i91W37U2Pv7F.QXzMDO0wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{Irf8pVJa1xKPMy2i91W37U2Pv7F.QXzMDO0wCM2kjNzEzW}
+```
 
 ### References:
 - Wikipedia: https://en.wikipedia.org/wiki/Home_directory
