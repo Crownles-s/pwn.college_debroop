@@ -36,7 +36,9 @@ pwn.college{oj5a1UWuSfjd2Pn-jTmACCx4iXp.QXxcTN0wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{oj5a1UWuSfjd2Pn-jTmACCx4iXp.QXxcTN0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -68,7 +70,9 @@ pwn.college{s5GKE12H3B5ALnN3vhQHl9IcODh.QX5ETO0wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{s5GKE12H3B5ALnN3vhQHl9IcODh.QX5ETO0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -94,7 +98,9 @@ pwn.college{gcWDG-9qoodf-4ysz6SDP_plaq8.QXwITO0wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{gcWDG-9qoodf-4ysz6SDP_plaq8.QXwITO0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -126,7 +132,9 @@ pwn.college{AptkdGfz5J2--5fN2kuArfr25LG.QX3EDO0wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{AptkdGfz5J2--5fN2kuArfr25LG.QX3EDO0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -189,7 +197,9 @@ hacker@commands~comparing-files:/challenge$ diff decoys_only.txt decoys_and_real
 ```
 
 ## Flag:
+```
 pwn.college{guOzJildrEY27XLLdgeeVStNaIC.01MwMDOxwCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -229,7 +239,9 @@ pwn.college{AjMGQsqk98YndlL93CnDGSFZQQP.QX4IDO0wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{AjMGQsqk98YndlL93CnDGSFZQQP.QX4IDO0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -265,7 +277,9 @@ pwn.college{skn9sN6XYzRkrJ9Xwa3bXHIPsj3.QXwMDO0wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{skn9sN6XYzRkrJ9Xwa3bXHIPsj3.QXwMDO0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -302,7 +316,9 @@ pwn.college{MHoC9wCBBMUc2oaLM000nSNCMlI.QX2kDM1wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{MHoC9wCBBMUc2oaLM000nSNCMlI.QX2kDM1wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -340,7 +356,9 @@ pwn.college{sJ-Q7k-EcW_SLP1VZlEU83gjWeo.0VOxEzNxwCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{sJ-Q7k-EcW_SLP1VZlEU83gjWeo.0VOxEzNxwCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -378,7 +396,9 @@ pwn.college{8mDriZL_M_91DT6OAn1X-IQDuJR.QXwUDO0wCM2kjNzEzW}
 ```
 
 ## Flag:
+```
 pwn.college{8mDriZL_M_91DT6OAn1X-IQDuJR.QXwUDO0wCM2kjNzEzW}
+```
 
 ### References:
 - None
@@ -494,7 +514,9 @@ hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/
 ```
 
 ## Flag:
+```
 pwn.college{UKZ4uevSrZ428EjMKPFcBkDgff7.QX5IDO0wCM2kjNzEzW}
+```
 
 ### References:
 - None
