@@ -202,7 +202,7 @@ pwn.college{wMqPZRJRAFz6pABOc5chQRpazaX.QX0EDO0wCM2kjNzEzW}
 - https://man7.org/linux/man-pages/
 
 ### Notes:
-- man command gives us the documentation for any command that is stored in the above refernced link.
+- man command gives us the documentation for any command that is stored in the above referenced link.
 
 # Challenge 4: 
 
