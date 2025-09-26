@@ -211,7 +211,7 @@ Now you try it. We put a few happy, but diversely-named files in /challenge/file
 ## Solution: 
 - First, we need to cd to /challenge/files.
 - Then, run/challenge/run with required length argument.
-- it should look like *p*
+- it should look like \*p*
 - This works and gives the flag.
 
 ```sh
@@ -241,8 +241,8 @@ Now, let's put the previous levels together! We put a few happy, but diversely-n
 - Then, there must be some common letters or features in these 3 words.
 - The first similarity is that they contain i and n.
 - Tried globbing [i*n]. Did not work.
-- Tried *in*. But it says we must use square bracket glob.
-- Trying *[in]* reveals many more useless files.
+- Tried \*in*. But it says we must use square bracket glob.
+- Trying \*[in]* reveals many more useless files.
 - Another observation is that none of the useless files start with c p or e. So, [cpe]* is an option. This worked.
 
 ```sh
@@ -273,95 +273,150 @@ pwn.college{QQ9auXpfWLlmz3hpnFDD4pvssZE.QX1IDO0wCM2kjNzEzW}
 ### Notes:
 - Mixing different globs can be difficult to pull off.
 
-# Challenge 7: 
+# Challenge 7: Exclusionary globbing
+Sometimes, you want to filter out files in a glob! Luckily, [] helps you do just this. If the first character in the brackets is a ! or (in newer versions of bash) a ^, the glob inverts, and that bracket instance matches characters that aren't listed. For example:
 
 ```sh
-
+hacker@dojo:~$ touch file_a
+hacker@dojo:~$ touch file_b
+hacker@dojo:~$ touch file_c
+hacker@dojo:~$ ls
+file_a	file_b	file_c
+hacker@dojo:~$ echo Look: file_[!ab]
+Look: file_c
+hacker@dojo:~$ echo Look: file_[^ab]
+Look: file_c
+hacker@dojo:~$ echo Look: file_[ab]
+Look: file_a file_b
 ```
 
-## Solution: 
+Armed with this knowledge, go forth to /challenge/files and run /challenge/run with all files that don't start with p, w, or n!
 
+NOTE: The ! character has a different special meaning in bash when it's not the first character of a [] glob, so keep that in mind if things stop making sense! ^ does not have this problem, but is also not compatible with older shells.
+
+## Solution: 
+- Enter the specified working directory.
+- Use glob [!pwn]* as argument.
 
 ```sh
-
+hacker@globbing~exclusionary-globbing:~$ cd /challenge/files
+hacker@globbing~exclusionary-globbing:/challenge/files$ /challenge/run [!pwn]*
+You got it! Here is your flag!
+pwn.college{0pdLe066LE5Hl5VFFJ4J4C2wyg2.QX2IDO0wCM2kjNzEzW}
 ```
 
 ## Flag:
 ```
-
+pwn.college{0pdLe066LE5Hl5VFFJ4J4C2wyg2.QX2IDO0wCM2kjNzEzW}
 ```
 
 ### References:
--
+- None.
 
 ### Notes:
+- ! may cause errors when placed elsewhere, ^ does not.
+- ^ doesn't work in old bash versions.
 
-# Challenge 8: 
+# Challenge 8: Tab completion
+As tempting as it might be, using * to shorten what must be typed on the commandline can lead to mistakes. Your glob might expand to unintended files, and you might not spot it until the rm command is already running! No one is safe from this style of error.
+
+A safer alternative when you are trying to specify a specific target is tab completion. If you hit tab in the shell, it'll try to figure out what you're going to type and automatically complete it. Auto-completion is super useful, and this challenge will explore its use in specifying files.
+
+This challenge has copied the flag into /challenge/pwncollege, and you can freely cat that file. But you can't type the filename: we used some serious trickery to make sure that you must tab-complete it. Try it out!
 
 ```sh
-
+hacker@dojo:~$ ls /challenge
+DESCRIPTION.md  pwncollege
+hacker@dojo:~$ cat /challenge/pwncollege
+cat: /challenge/pwncollege: No such file or directory
+hacker@dojo:~$ cat /challenge/pwn<TAB>
+pwn.college{HECK YEAH}
+hacker@dojo:~$
 ```
+When you hit that tab key, the name will expand and you'll be able to read the file. Good luck!
 
 ## Solution: 
-
+- First enter the wroking directory.
+- Then use tab to complete filename as shown.
 
 ```sh
-
+hacker@globbing~tab-completion:~$ cd /challenge
+hacker@globbing~tab-completion:/challenge$ cat /challenge/pwncollege​ 
+pwn.college{MInv_CeJYpQNcEBolQ4pdw0QVEn.0FN0EzNxwCM2kjNzEzW}
 ```
 
 ## Flag:
 ```
-
+pwn.college{MInv_CeJYpQNcEBolQ4pdw0QVEn.0FN0EzNxwCM2kjNzEzW}
 ```
 
 ### References:
--
+- None.
 
 ### Notes:
+- tab key autocompletes filenames and is safer than blind globbing.
 
-# Challenge 9: 
+# Challenge 9: Multiple options for tab completion
+Consider the following situation:
 
 ```sh
-
+hacker@dojo:~$ ls
+flag  flamingo  flowers
+hacker@dojo:~$ cat f<TAB>
 ```
 
-## Solution: 
+There are multiple options! What happens?
 
+What happens varies based on the specific shell and its options. By default bash will auto-expand until the first point when there are multiple options (in this case, fl). When you hit tab a second time, it'll print out those options. Other shells and configurations, instead, will cycle through the options.
+
+This challenge has a /challenge/files directory with a bunch of files starting with pwncollege. Tab-complete from /challenge/files/p or so, and make your way to the flag!
+
+## Solution: 
+- Tab from /challenge/files/p shows the full list. Here, we can see the flag file.
+- Catting this file shows the flag.
 
 ```sh
-
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwn
+pwn                    pwncollege-family      pwncollege-flyswatter
+pwn-college            pwncollege-flag        pwncollege-hacking
+pwn-the-planet         pwncollege-flamingo    
+hacker@globbing~multiple-options-for-tab-completion:~$ cat /challenge/files/pwncollege-flag
+pwn.college{c6Jo8WJz5PGiCG8YccWFSqOWSbr.0lN0EzNxwCM2kjNzEzW}
 ```
 
 ## Flag:
 ```
-
+pwn.college{c6Jo8WJz5PGiCG8YccWFSqOWSbr.0lN0EzNxwCM2kjNzEzW}
 ```
 
 ### References:
--
+- None.
 
 ### Notes:
+- When tab has multiple options, bash shows a list of availble options.
 
-# Challenge 10: 
+# Challenge 10: Tab completion on commands
+Tab completion is for more than files! You can also tab-complete commands. This level has a command that starts with pwncollege, and it'll give you the flag. Type pwncollege and hit the tab key to auto-complete it!
 
-```sh
-
-```
+NOTE: You can auto-complete any command, but be careful: callous auto-completes without double-checking the result can wreak havoc in your shell if you accidentally run the wrong commands!
 
 ## Solution: 
-
+- As said, type pwncollege and tab autocomplete.
 
 ```sh
-
+hacker@globbing~tab-completion-on-commands:~$ pwncollege-6165 
+Correct! Here is your flag:
+pwn.college{onaGhd5IF97CidGry_ialfntirb.0VN0EzNxwCM2kjNzEzW}
 ```
 
 ## Flag:
 ```
-
+pwn.college{onaGhd5IF97CidGry_ialfntirb.0VN0EzNxwCM2kjNzEzW}
 ```
 
 ### References:
--
+- None.
 
 ### Notes:
-- 
+- Tab autocomplete is also useful for commands.
+- Tab autocomplete can be dangerous if accidentally running wrong commands.
