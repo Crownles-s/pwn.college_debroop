@@ -5,7 +5,9 @@ The correct usage of programs depends, in a large part, on the proper specificat
 
 The program for this challenge is /challenge/challenge, and you'll need to invoke it properly in order for it to give you the flag. Let's pretend that this is its documentation:
 
-| Welcome to the documentation for /challenge/challenge! To properly run this program, you will need to pass it the argument of --giveflag. Good luck!
+```
+Welcome to the documentation for /challenge/challenge! To properly run this program, you will need to pass it the argument of --giveflag. Good luck!
+```
 
 Given that knowledge, go get the flag!
 
@@ -37,7 +39,9 @@ This sounds crazy, but you've already encountered this with the find level in Ba
 
 Here is this level's documentation for /challenge/challenge:
 
-| Welcome to the documentation for /challenge/challenge! This program allows you to print arbitrary files to the terminal, when given the --printfile argument. The argument to the --printfile argument is the path of the flag to read. For example, /challenge/challenge --printfile /challenge/DESCRIPTION.md will print out the description of the level!
+```
+Welcome to the documentation for /challenge/challenge! This program allows you to print arbitrary files to the terminal, when given the --printfile argument. The argument to the --printfile argument is the path of the flag to read. For example, /challenge/challenge --printfile /challenge/DESCRIPTION.md will print out the description of the level!
+```
 
 Given that documentation, go get the flag!
 
