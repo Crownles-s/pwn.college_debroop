@@ -33,7 +33,7 @@ pwn.college{EAMtNdT3n2SiWt20S7eaTNiaYG3.QX0YTN0wCM2kjNzEzW}
 - None
 
 ### Notes:
-- > redirects outputs.
+- \> redirects outputs.
 
 # Challenge 2: Redirecting more output
 Aside from redirecting the output of echo, you can, of course, redirect the output of any command. In this level, /challenge/run will once more give you a flag, but only if you redirect its output to the file myflag. Your flag will, of course, end up in the myflag file!
@@ -148,8 +148,8 @@ pwn.college{QC4hGxmofBLwWsnFCCS6RQ1Ltww.QX3ATO0wCM2kjNzEzW}
 - https://stackoverflow.com/questions/43949166/reading-value-of-stdout-and-stderr
 
 ### Notes:
-- >> is append mode redirect. It attaches new things to a file.
-- > is overwrite mode redirect.
+- \>> is append mode redirect. It attaches new things to a file.
+- \> is overwrite mode redirect.
 
 # Challenge 4: Redirecting errors
 Just like standard output, you can also redirect the error channel of commands. Here, we'll learn about File Descriptor numbers. A File Descriptor (FD) is a number that describes a communication channel in Linux. You've already been using them, even though you didn't realize it. We're already familiar with three:
