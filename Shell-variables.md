@@ -228,47 +228,76 @@ Neat! Now, you practice. Read the output of the /challenge/run command directly 
 Trivia: You can also use backticks instead of $(): FLAG=`cat /flag` instead of FLAG=$(cat /flag) in the example above. This is an older format, and has some disadvantages (for example, imagine if you wanted to nest command substitutions. How would you do $(cat $(find / -name flag)) with backticks? The official stance of pwn.college is that you should use $(blah) instead of `blah`.
 
 ## Solution: 
-
+- We can store the command output, now the flag, in the bariable as given.
+- Print the variable as shown in challenge 1 for flag.
 
 ```sh
-
+hacker@variables~storing-command-output:~$ PWN=$(/challenge/run)
+Congratulations! You have read the flag into the PWN variable. Now print it out 
+and submit it!
+hacker@variables~storing-command-output:~$ echo $PWN
+pwn.college{0ygBK_cp5AG6F5DcJAmtZ2VQaGE.QX1cDN1wCM2kjNzEzW}
 ```
 
 ## Flag:
 ```
-
+pwn.college{0ygBK_cp5AG6F5DcJAmtZ2VQaGE.QX1cDN1wCM2kjNzEzW}
 ```
 
 ### References:
 - None
 
 ### Notes:
+- Store a command cmd in a variable var using var=$(cmd)
 
-# Challenge 7: 
+# Challenge 7: Reading Input
+We'll start with reading input from the user (you). That's done using the aptly named read builtin, which reads input into a variable!
 
+Here is an example using the -p argument, which lets you specify a prompt (otherwise, it would be hard for you, reading this now, to separate input from output in the example below):
 
 ```sh
-
+hacker@dojo:~$ read -p "INPUT: " MY_VARIABLE
+INPUT: Hello!
+hacker@dojo:~$ echo "You entered: $MY_VARIABLE"
+You entered: Hello!
 ```
 
+Keep in mind, read reads data from your standard input! The first Hello!, above, was inputted rather than outputted. Let's try to be more explicit with that. Here, we annotated the beginning of each line with whether the line represents INPUT from the user or OUTPUT to the user:
+
+```sh
+ INPUT: hacker@dojo:~$ echo $MY_VARIABLE
+OUTPUT:
+ INPUT: hacker@dojo:~$ read MY_VARIABLE
+ INPUT: Hello!
+ INPUT: hacker@dojo:~$ echo "You entered: $MY_VARIABLE"
+OUTPUT: You entered: Hello!
+```
+
+In this challenge, your job is to use read to set the PWN variable to the value COLLEGE. Good luck!
 
 ## Solution: 
-
+- Read the value of PWN variable as COLLEGE as shown.
 
 ```sh
-
+hacker@variables~reading-input:~$ read PWN
+COLLEGE
+You've set the PWN variable properly! As promised, here is the flag:
+pwn.college{g_Ia3NvmVgLHGVyhkGK1DXt31Cd.QX4cTN0wCM2kjNzEzW}
 ```
+
 ## Flag:
 ```
-
+pwn.college{g_Ia3NvmVgLHGVyhkGK1DXt31Cd.QX4cTN0wCM2kjNzEzW}
 ```
 
 ### References:
 - None
 
 ### Notes:
+- Use read VAR and enter VALUE on next line to set VAR variable as VALUE value.
+- We can also attach prompts with read -p
 
-# Challenge 8: 
+# Challenge 8: Reading Files
 
 
 ```sh
