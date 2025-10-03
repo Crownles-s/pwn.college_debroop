@@ -197,21 +197,54 @@ Good luck!
 NOTE: You might see a few decoy flags show up even after killing the decoy process. This happens because Linux pipes are buffered: conceptually, they have a sort of length through which data flows, and you might kill the decoy process while data is in the pipe. That data, having already entered the pipe, will proceed to the other end (your cat). If you wait a second, you'll see the decoys stop, and then you can /challenge/run and win!
 
 ## Solution: 
-
+- Check the process list first.
+- Kill the decoy.
+- Run /challenge/run.
+- Read the pipe file, which gives garbage values.
+- Run challenge again, and now the tmp file gives flag.
 
 ```sh
-
+hacker@processes~killing-misbehaving-processes:~$ ps -ef
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 11:58 ?        00:00:00 /sbin/docker-init -- /nix/var/nix/profiles/dojo-workspace/bin/dojo-init /run/dojo/bin/sleep 6h
+root           7       1  0 11:58 ?        00:00:00 /run/dojo/bin/sleep 6h
+root         137       1  0 11:58 ?        00:00:00 /bin/bash /challenge/.init
+root         138       1  0 11:58 ?        00:00:00 /bin/bash /challenge/.init
+root         139       1  0 11:58 ?        00:00:00 su -c exec /challenge/decoy > /tmp/flag_fifo hacker
+root         140     138  0 11:58 ?        00:00:00 sleep 6h
+root         141     137  0 11:58 ?        00:00:00 sleep 6h
+hacker       142     139  0 11:58 ?        00:00:00 /usr/bin/python /challenge/decoy
+hacker       153       1  0 11:58 ?        00:00:00 /nix/store/g0q8n7xfjp7znj41hcgrq893a9m0i474-ttyd-1.7.7/bin/ttyd --port 7681 --interface 0.0.0.
+hacker       157     153  0 11:58 pts/0    00:00:00 /run/dojo/bin/bash --login
+hacker       167     157  0 11:58 pts/0    00:00:00 ps -ef
+hacker@processes~killing-misbehaving-processes:~$ kill 142
+hacker@processes~killing-misbehaving-processes:~$ /challenge/run
+Sending the flag to /tmp/flag_fifo!
+^C
+hacker@processes~killing-misbehaving-processes:~$ cat /tmp/flag_fifo
+pwn.college{W11-yBHWH6t-.BnTzfti7x3YLCQPpoX715Kn5Bhajomnj95}
+pwn.college{L7cFFzo2V4-q7TRKcpJi1xg9hVLiKO0Bsjz7yUS6qXFvJSY}
+.
+.
+.
+pwn.college{hDsbPwtEmk.NeH4WKpGsx-gTr45CECScM-n89NrLHuat-Ml}
+^C
+hacker@processes~killing-misbehaving-processes:~$ /challenge/run
+Sending the flag to /tmp/flag_fifo!
+hacker@processes~killing-misbehaving-processes:~$ cat /tmp/flag_fifo
+pwn.college{UPL0aysG2cMku3PzbHRKfFHV0r8.0FNzMDOxwCM2kjNzEzW}
 ```
 
 ## Flag:
 ```
-
+pwn.college{UPL0aysG2cMku3PzbHRKfFHV0r8.0FNzMDOxwCM2kjNzEzW}
 ```
 
 ### References:
 - None
 
 ### Notes:
+- None.
 
 # Challenge 5: Suspending Processes
 You have learned to interrupt processes with Ctrl-C, but there are less drastic measures you can use to get your terminal back! You can suspend processes to the background with Ctrl-Z. In this level, we'll explore how this works and, in the next level, we'll figure out how to resume those suspended processes!
