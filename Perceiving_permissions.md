@@ -283,114 +283,324 @@ root@dojo:~#
 In this challenge, you must change the permissions of the /flag file to read it! Typically, you need to have write access to the file in order to change its permissions, but I have made the chmod command all-powerful for this level, and you can chmod anything you want even though you are the hacker user. This is an ultimate power. The /flag file is owned by root, and you can't change that, but you can make it readable. Go and solve this!
 
 ## Solution: 
-
+- Add reading permissions to everyone.
+- Read flag
 
 ```sh
-
+hacker@permissions~changing-permissions:~$ chmod ugo+r /flag
+hacker@permissions~changing-permissions:~$ cat /flag
+pwn.college{MIiFL6IJWFfEWUqBNe4vq9oRPJX.QXzcjM1wCM2kjNzEzW}
 ```
 
 ## Flag:
 ```
-
+pwn.college{MIiFL6IJWFfEWUqBNe4vq9oRPJX.QXzcjM1wCM2kjNzEzW}
 ```
 
 ### References:
 - None
 
 ### Notes:
+- chmod changes permissions.
 
-# Challenge 5: 
+# Challenge 5: Executable Files
+So far, you have mostly been dealing with read permissions. This makes sense, because you have been making the /flag file readable to read it. In this level, we will explore execute permissions.
 
+When you invoke a program, such as /challenge/run, Linux will only actually execute it if you have execute-access to the program file. Consider:
 
 ```sh
-
+hacker@dojo:~$ ls -l /challenge/run
+-rwxr-xr-x 1 root root    0 May 22 13:42 /challenge/run
+hacker@dojo:~$ /challenge/run
+Successfully ran the challenge!
+hacker@dojo:~$
 ```
+
+In this case, /challenge/run runs because it is executable by the hacker user. Because the file is owned by the root user and root group, this requires that the execute bit is set on the other permissions. If we remove these permissions, the execution will fail!
+
+```sh
+hacker@dojo:~$ chmod o-x /challenge/run
+hacker@dojo:~$ ls -l /challenge/run
+-rwxr-xr-- 1 root root    0 May 22 13:42 /challenge/run
+hacker@dojo:~$ /challenge/run
+bash: /challenge/run: Permission denied
+hacker@dojo:~$
+```
+
+In this challenge, the /challenge/run program will give you the flag, but you must first make it executable! Remember your chmod, and get /challenge/run to tell you the flag!
 
 ## Solution: 
-
+- Add execution permission using chmod.
+- Execute /challenge/run for flag.
 
 ```sh
-
+hacker@permissions~executable-files:~$ chmod ugo+x /challenge/run
+hacker@permissions~executable-files:~$ /challenge/run
+Successful execution! Here is your flag:
+pwn.college{sTl4rPYEsTc3dAnOZXMxZbHH3Jb.QXyEjN0wCM2kjNzEzW}
 ```
 
 ## Flag:
 ```
-
+pwn.college{sTl4rPYEsTc3dAnOZXMxZbHH3Jb.QXyEjN0wCM2kjNzEzW}
 ```
 
 ### References:
 - None
 
 ### Notes:
+- None.
 
-# Challenge 6: 
+# Challenge 6: Permission Tweaking Practice
+You think you can chmod? Let's practice!
 
-
-```sh
-
-```
+This challenge will ask you to change the permissions of the /challenge/pwn file in specific ways a few times in a row. If you get the permissions wrong, the game will reset and you can try again. If you get the permissions right eight times in a row, the challenge will let you chmod /flag to make it readable for yourself :-) Launch /challenge/run to get started!
 
 ## Solution: 
-
+- Correctly set all permissions for 8 rounds.
+- Get read permission for flag.
+- Read flag.
+- Solution code below has been shortened.
 
 ```sh
+hacker@permissions~permission-tweaking-practice:~$ /challenge/run
+Round 1 of 8!
 
+Current permissions of "/challenge/pwn": rw-r--r--
+
+Needed permissions of "/challenge/pwn": rw-rw-r--
+hacker@permissions~permission-tweaking-practice:~$ chmod g+w /challenge/pwn
+You set the correct permissions!
+Round 2 of 8!
+
+Current permissions of "/challenge/pwn": rw-rw-r--
+
+Needed permissions of "/challenge/pwn": r--r--r--
+hacker@permissions~permission-tweaking-practice:~$ chmod ug-w /challenge/pwn
+You set the correct permissions!
+Round 3 of 8!
+
+Current permissions of "/challenge/pwn": r--r--r--
+
+Needed permissions of "/challenge/pwn": r--r-xr--
+hacker@permissions~permission-tweaking-practice:~$ chmod g+x /challenge/pwn
+You set the correct permissions!
+Round 4 of 8!
+
+Current permissions of "/challenge/pwn": r--r-xr--
+
+Needed permissions of "/challenge/pwn": rwxr-xrwx
+hacker@permissions~permission-tweaking-practice:~$ chmod uo+wx /challenge/pwn
+You set the correct permissions!
+Round 5 of 8!
+
+Current permissions of "/challenge/pwn": rwxr-xrwx
+
+Needed permissions of "/challenge/pwn": rw-r--rw-
+hacker@permissions~permission-tweaking-practice:~$ chmod ugo-x /challenge/pwn
+You set the correct permissions!
+Round 6 of 8!
+
+Current permissions of "/challenge/pwn": rw-r--rw-
+
+Needed permissions of "/challenge/pwn": rwxr-xrw-
+hacker@permissions~permission-tweaking-practice:~$ chmod ug+x /challenge/pwn
+You set the correct permissions!
+Round 7 of 8!
+
+Current permissions of "/challenge/pwn": rwxr-xrw-
+Needed permissions of "/challenge/pwn": rw-r-xrw-
+hacker@permissions~permission-tweaking-practice:~$ chmod u-x /challenge/pwn
+You set the correct permissions!
+Round 8 of 8!
+
+Current permissions of "/challenge/pwn": rw-r-xrw-
+
+Needed permissions of "/challenge/pwn": -w-r-x-w-
+hacker@permissions~permission-tweaking-practice:~$ chmod uo-r /challenge/pwn
+You set the correct permissions!
+You've solved all 8 rounds! I have changed the ownership
+of the /flag file so that you can 'chmod' it. You won't be able to read
+it until you make it readable with chmod!
+
+Current permissions of "/flag": ---------
+- the user doesn't have read permissions
+- the user doesn't have write permissions
+- the user doesn't have execute permissions
+- the group doesn't have read permissions
+- the group doesn't have write permissions
+- the group doesn't have execute permissions
+- the world doesn't have read permissions
+- the world doesn't have write permissions
+- the world doesn't have execute permissions
+hacker@permissions~permission-tweaking-practice:~$ chmod ugo+r /flag
+hacker@permissions~permission-tweaking-practice:~$ cat /flag
+pwn.college{wJYrTitCBMttYRHOeXkvrT8OvI1.QXwEjN0wCM2kjNzEzW}
 ```
 
 ## Flag:
 ```
-
+pwn.college{wJYrTitCBMttYRHOeXkvrT8OvI1.QXwEjN0wCM2kjNzEzW}
 ```
 
 ### References:
 - None
 
 ### Notes:
+- None.
 
-# Challenge 7: 
+# Challenge 7: Permissions Setting Practice
+In addition to adding and removing permissions, as in the previous level, chmod can also simply set permissions altogether, overwriting the old ones. This is done by using = instead of - or +. For example:
 
+- u=rw sets read and write permissions for the user, and wipes the execute permission
+- o=x sets only executable permissions for the world, wiping read and write
+- a=rwx sets read, write, and executable permissions for the user, group, and world!
 
-```sh
+But what if you want to change user permissions in a different way as group permissions? Say, you want to set rw for the owning user, but only r for the owning group? You can achieve this by chaining multiple modes to chmod with ,!
 
-```
+- chmod u=rw,g=r /challenge/pwn will set the user permissions to read and write, and the group permissions to read-only
+- chmod a=r,u=rw /challenge/pwn will set the user permissions to read and write, and the group and world permissions to read-only
+
+Additionally, you can zero out permissions with -:
+
+chmod u=rw,g=r,o=- /challenge/pwn will set the user permissions to read and write, the group permissions to read-only, and the world permissions to nothing at all
+Keep in mind, that -, appearing after = is in a different context than if it appeared directly after the u, g, or o (in which case, it would cause specific bits to be removed, not everything).
+
+This level extends the previous level by requesting more radical permission changes, which you will need = and ,-chaining to achieve. Good luck!
 
 ## Solution: 
-
+- Correctly set permissions.
 
 ```sh
+hacker@permissions~permissions-setting-practice:~$ /challenge/run
+Round 1 of 8!
 
+Current permissions of "/challenge/pwn": rw-r--r--
+
+Needed permissions of "/challenge/pwn": -w-r-xrwx
+hacker@permissions~permissions-setting-practice:~$ chmod u=w,g=rx,o=rwx /challenge/pwn
+You set the correct permissions!
+Round 2 of 8!
+
+Current permissions of "/challenge/pwn": -w-r-xrwx
+
+Needed permissions of "/challenge/pwn": r---w-rwx
+hacker@permissions~permissions-setting-practice:~$ chmod u=r,g=w /challenge/pwn
+You set the correct permissions!
+Round 3 of 8!
+
+Current permissions of "/challenge/pwn": r---w-rwx
+
+Needed permissions of "/challenge/pwn": ---rwx---
+hacker@permissions~permissions-setting-practice:~$ chmod u=-,g=rwx,o=- /challenge/pwn
+You set the correct permissions!
+Round 4 of 8!
+
+Current permissions of "/challenge/pwn": ---rwx---
+
+Needed permissions of "/challenge/pwn": ---r--r-x
+hacker@permissions~permissions-setting-practice:~$ chmod g=r,o=rx /challenge/pwn
+You set the correct permissions!
+Round 5 of 8!
+
+Current permissions of "/challenge/pwn": ---r--r-x
+
+Needed permissions of "/challenge/pwn": -w---x-wx
+hacker@permissions~permissions-setting-practice:~$ chmod u=w,g=x,o=wx /challenge/pwn
+You set the correct permissions!
+Round 6 of 8!
+
+Current permissions of "/challenge/pwn": -w---x-wx
+
+Needed permissions of "/challenge/pwn": -w-rw-r--
+hacker@permissions~permissions-setting-practice:~$ chmod g=rw,o=r /challenge/pwn
+You set the correct permissions!
+Round 7 of 8!
+
+Current permissions of "/challenge/pwn": -w-rw-r--
+
+Needed permissions of "/challenge/pwn": --xrw-rwx
+hacker@permissions~permissions-setting-practice:~$ chmod u=x,g=rw,o=rwx /challenge/pwn
+You set the correct permissions!
+Round 8 of 8!
+
+Current permissions of "/challenge/pwn": --xrw-rwx
+
+Needed permissions of "/challenge/pwn": -----xr--
+hacker@permissions~permissions-setting-practice:~$ chmod u=-,g=x,o=r /challenge/pwn
+You set the correct permissions!
+You've solved all 8 rounds! I have changed the ownership
+of the /flag file so that you can 'chmod' it. You won't be able to read
+it until you make it readable with chmod!
+
+Current permissions of "/flag": ---------
+- the user doesn't have read permissions
+- the user doesn't have write permissions
+- the user doesn't have execute permissions
+- the group doesn't have read permissions
+- the group doesn't have write permissions
+- the group doesn't have execute permissions
+- the world doesn't have read permissions
+- the world doesn't have write permissions
+- the world doesn't have execute permissions
+hacker@permissions~permissions-setting-practice:~$ chmod ugo+r /flag
+hacker@permissions~permissions-setting-practice:~$ cat /flag
+pwn.college{cXG0YHq_OH_gurRSgyz-Sw_wdPI.QXzETO0wCM2kjNzEzW}
 ```
 
 ## Flag:
 ```
-
+pwn.college{cXG0YHq_OH_gurRSgyz-Sw_wdPI.QXzETO0wCM2kjNzEzW}
 ```
 
 ### References:
 - None
 
 ### Notes:
+- chmod a=b overwrites permission b for a.
 
-# Challenge 8: 
+# Challenge 8: The SUID Bit
+As you explored in the previous module, there are many cases in which non-root users need elevated access to do certain system tasks. The system admin can't be there to give them the password every time a user wanted to do a task that only root/sudoers can do. Instead, the "Set User ID" (SUID) permissions bit allows the user to run a program as the owner of that program's file.
 
+This is actually the exact mechanism used to let the challenge programs you run read the flag or, outside of pwn.college, to enable system administration tools such as su, sudo, and so on. The permissions of a file with SUID look like this:
 
 ```sh
-
+hacker@dojo:~$ ls -l /usr/bin/sudo
+-rwsr-xr-x 1 root root 232416 Dec 1 11:45 /usr/bin/sudo
+hacker@dojo:~$
 ```
+
+The s part in place of the executable bit means that the program is executable with SUID. It means that, regardless of what user runs the program (as long as they have executable permissions), the program will execute as the owner user (in this case, the root user).
+
+As the owner of a file, you can set a file's SUID bit by using chmod:
+```
+chmod u+s [program]
+```
+But be careful! Giving the SUID bit to an executable owned by root can give attackers a possible attack vector to become root. You will learn more about this in the Program Misuse module.
+
+Now, we are going to let you add the SUID bit to the /challenge/getroot program in order to spawn a root shell for you to cat the flag yourself!
 
 ## Solution: 
-
+- Use chmod to give suid to users.
+- Get root.
+- Read flag.
 
 ```sh
-
+hacker@permissions~the-suid-bit:~$ chmod ugo+s /challenge/getroot
+hacker@permissions~the-suid-bit:~$ /challenge/getroot
+SUCCESS! You have set the suid bit on this program, and it is running as root! 
+Here is your shell...
+root@permissions~the-suid-bit:~# cat /flag
+pwn.college{gmM1bqUdIIm7ta6CtZ8mrtLZL1b.QXzEjN0wCM2kjNzEzW}
 ```
 
 ## Flag:
 ```
-
+pwn.college{gmM1bqUdIIm7ta6CtZ8mrtLZL1b.QXzEjN0wCM2kjNzEzW}
 ```
 
 ### References:
 - None
 
 ### Notes:
+- chmod a-s gives suid access to a. This can help a run a program as root/owner.
