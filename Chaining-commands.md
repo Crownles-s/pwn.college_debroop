@@ -581,21 +581,42 @@ Once your script works correctly, run /challenge/run to get your flag!
 NOTE: As you're creating your script, make sure to follow the spacing closely in the examples. Unlike many other languages, bash requires the [ and the ] to be separated from other characters by spaces, otherwise it cannot parse the condition.
 
 ## Solution: 
+- Make the script.
 
+```
+if [ "$1" == "hack" ]
+then
+    echo "the planet"
+elif [ "$1" == "pwn" ]
+then
+    echo "college"
+elif [ "$1" == "learn" ]
+then
+    echo "linux"
+else
+    echo "unknown"
+fi
+```
+
+- Check if it works and get the flag.
 
 ```sh
-
+hacker@chaining~scripting-with-multiple-conditions:~$ /challenge/run
+Correct! Your script properly handles all the conditions with elif.
+Here's your flag:
+pwn.college{Afoio2lO0_IiDfFaN17T30Du2bY.0FOzMDOxwCM2kjNzEzW}
 ```
 
 ## Flag:
 ```
-
+pwn.college{Afoio2lO0_IiDfFaN17T30Du2bY.0FOzMDOxwCM2kjNzEzW}
 ```
 
 ### References:
 - None
 
 ### Notes:
+- Learnt how to use multiple if statements in a row.
 
 # Challenge 12: Reading Shell Scripts
 You're not the only one who writes shell scripts! They are very handy for doing simple "system-level" tasks, and are a common tool that developers and sysadmins reach for. In fact, a surprising fraction of the programs on a typical Linux machine are shell scripts.
@@ -605,18 +626,34 @@ In this level, we will learn to read shell scripts. /challenge/run is a shell sc
 NOTE: Feel free to try to read the code of other challenges as well! Reading code is a critical strategy in learning new skills, because you can see how certain functionality was implemented and reuse those strategies in your own scripts. But watch out: some program files are machine code, and will not be readable to humans. You can use the file command to differentiate, but almost all the challenges in the Linux Luminarium are implemented as shell scripts and are safe to cat out.
 
 ## Solution: 
-
+- cat the command to read the password.
+- Enter the command and then the password for the flag.
 
 ```sh
+hacker@chaining~reading-shell-scripts:~$ cat /challenge/run
+#!/opt/pwn.college/bash
 
+read GUESS
+if [ "$GUESS" == "hack the PLANET" ]
+then
+        echo "CORRECT! Your flag:"
+        cat /flag
+else
+        echo "Read the /challenge/run file to figure out the correct password!"
+fi
+hacker@chaining~reading-shell-scripts:~$ /challenge/run
+hack the PLANET
+CORRECT! Your flag:
+pwn.college{A0wkDqGXfanbS1RrAsNrfLUZ65x.0lMwgDOxwCM2kjNzEzW}
 ```
 
 ## Flag:
 ```
-
+pwn.college{A0wkDqGXfanbS1RrAsNrfLUZ65x.0lMwgDOxwCM2kjNzEzW}
 ```
 
 ### References:
 - None
 
 ### Notes:
+- We can cat shell scripts.
